@@ -1,4 +1,5 @@
 from time import sleep
+# for similar code look here: http://freenove.com/tutorial.html
 
 
 class Adafruit_CharLCD(object):
