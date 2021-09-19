@@ -14,7 +14,7 @@ def get_cpu_temp():  # get CPU temperature and store it into file "/sys/class/th
     tmp = open('/sys/class/thermal/thermal_zone0/temp')
     cpu_temp = float(tmp.read()) / 1e3
     tmp.close()
-    return f"{cpu_temp:.0f}C"
+    return f"{cpu_temp:.0f}"
 
 
 def get_external_ip():
