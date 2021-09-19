@@ -10,9 +10,14 @@ import json
 
 def get_cpu_temp():  # get CPU temperature and store it into file "/sys/class/thermal/thermal_zone0/temp"
     tmp = open('/sys/class/thermal/thermal_zone0/temp')
-    cpu_temp = float(tmp.read())/1e3
+    cpu_temp = float(tmp.read()) / 1e3
     tmp.close()
     return f"{cpu_temp:.0f}C"
+
+
+def get_external_ip():
+    ip = requests.get('https://api.ipify.org').text
+    return ip
 
 
 def loop():
@@ -23,7 +28,7 @@ def loop():
         lcd.setCursor(0, 0)  # set cursor position
         j_pihole = get_pihole_data()
         lcd.message(f"#{j_pihole['unique_clients']} | {j_pihole['ads_percentage_today']:.0f}% |" \
-                    f" {j_pihole['ads_blocked_today']} \n" \
+                    f" {get_external_ip()} \n" \
                     f" {datetime.now().strftime('%H:%M')} | {get_cpu_temp()} ")
         sleep(5)
 
