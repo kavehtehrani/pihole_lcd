@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# LCD: I2C LCD1602
-# Raspberry Pi 4
 
 from PCF8574 import PCF8574_GPIO
 from Adafruit_LCD1602 import Adafruit_CharLCD
@@ -14,7 +12,7 @@ def get_cpu_temp():  # get CPU temperature and store it into file "/sys/class/th
     tmp = open('/sys/class/thermal/thermal_zone0/temp')
     cpu_temp = float(tmp.read()) / 1e3
     tmp.close()
-    return f"{cpu_temp:.0f}"
+    return f"{cpu_temp:.0f}C"
 
 
 def get_external_ip():
