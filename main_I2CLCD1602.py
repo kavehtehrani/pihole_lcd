@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# LCD: I2C LCD1602
+# Raspberry Pi 4
 
 from PCF8574 import PCF8574_GPIO
 from Adafruit_LCD1602 import Adafruit_CharLCD
